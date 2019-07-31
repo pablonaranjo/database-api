@@ -7,20 +7,20 @@ before to run:
 
 to run the api:
 - docker build -t db-api .
-- docker run -ti -p 8080:8080 -e "TOKEN1=<token-id>" db-api
+- docker run -ti -p 8080:8080 -e "TOKEN1={token-id}" db-api
 
 to get databases:
-- curl -X GET -H "X-AUTH: <token-id>" http://localhost:8080/databases
+- curl -X GET -H "X-AUTH: {token-id}" http://localhost:8080/databases
 
 to create database:
-- curl -X POST -H "X-AUTH: <token-id>" --header "Content-Type: application/json" localhost:8080/databases -d '{"name": "database1", "plan": "t2.micro"}'
+- curl -X POST -H "X-AUTH: {token-id}" --header "Content-Type: application/json" localhost:8080/databases -d '{"name": "database1", "plan": "t2.micro"}'
 
 to delete database:
-- curl -X DELETE -H "X-AUTH: <token-id>" http://localhost:8080/databases/<instance-id>
+- curl -X DELETE -H "X-AUTH: {token-id}" http://localhost:8080/databases/{instance-id}
 
 to test etcd after create database:
 - open port 2379 in security group from source required
-- etcdctl --endpoints http://<public_instance_ip>:2379 mk </path/key> <value>
-- etcdctl --endpoints http://<public_instance_ip>:2379 ls
+- etcdctl --endpoints http://{public_instance_ip}:2379 mk {/path/key} {value}
+- etcdctl --endpoints http://{public_instance_ip}:2379 ls
 
 
