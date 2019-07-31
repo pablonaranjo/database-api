@@ -19,6 +19,7 @@ to delete database:
 - curl -X DELETE -H "X-AUTH: <token-id>" http://localhost:8080/databases/<instance-id>
 
 to test etcd after create database:
+- open port 2379 in security group from source required
 - etcdctl --endpoints http://<public_instance_ip>:2379 mk </path/key> <value>
 - etcdctl --endpoints http://<public_instance_ip>:2379 ls
 
